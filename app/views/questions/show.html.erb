@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <tr>
+    <th>Tag</th>
+    <th>Content</th>
+  </tr>
+
+
+    <tr>
+      <td><%= @question.tag %></td>
+      <td><%= @question.content %></td>
+    </tr>
+
+</table>
+<h2>Add an Answer:</h2>
+<%= form_for([@question, @question.answers.build]) do |f| %>
+  <p>
+    <%= f.label :content%><br>
+    <%= f.text_field :content %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>
